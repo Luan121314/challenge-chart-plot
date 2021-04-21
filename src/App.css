@@ -1,0 +1,27 @@
+:root{
+  --primary-color: #ffffff;
+  --secondary-color: #dddee2;
+  --text-color: #4d515e;
+  --button-color: #f1f1dd;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+
+body, input, button{
+  font-family: 'poppins';
+}
+
+@media(max-width:600px){
+  *{
+
+      font-size: 0.879rem;
+  }
+
+}
