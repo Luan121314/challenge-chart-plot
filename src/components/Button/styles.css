@@ -1,0 +1,19 @@
+.button-component{
+    background-color: var(--button-color);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    color: var(--primary-color);
+    box-shadow: 1px 1px 3px var(--text-color);
+}
+.button-component:hover{
+    box-shadow: 2px 2px 3px var(--text-color);
+    transition: box-shadow 0.7s;
+
+}
+.button-component:active{
+    opacity: 0.8;
+    transition: opacity 0.7s;
+
+}

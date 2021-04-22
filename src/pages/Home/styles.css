@@ -1,0 +1,56 @@
+#home-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    
+}
+
+#home-container header{
+    padding: 20px 40px;
+    background-color: var(--secondary-color);
+}
+
+#home-container header h1{
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+#home-container main .input-code{
+    /* --bottom-height: 200px; */
+    background-color: var(--trinary-color);
+    overflow: visible;
+    min-height: 10vh;
+    /* height: var(--bottom-height); */
+    position: relative;
+}
+
+#home-container main .input-code .editor-container{
+    min-height: 35vh;
+}
+
+#home-container footer{
+    padding: 20px 40px;
+    background-color: var(--secondary-color);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.dragbar {
+    height: 15px;
+    width: 35px;
+    border-radius: 4px;
+    cursor: row-resize;
+    background-color: #27292d;
+    bottom: 0;
+    right: 50%;
+    position: absolute;
+    margin-bottom: -7.5px;
+    padding: 5px;
+    
+  }
+  
+  .dragbar div{
+    background-color: #404246;
+    margin-bottom: 2px;
+    height: 2px;
+  }

@@ -1,8 +1,9 @@
 :root{
   --primary-color: #ffffff;
   --secondary-color: #dddee2;
-  --text-color: #4d515e;
-  --button-color: #f1f1dd;
+  --trinary-color: #2e3440;
+  --text-color: #2e3440;
+  --button-color: #007eff;
 
 }
 
@@ -15,13 +16,6 @@
 
 
 body, input, button{
-  font-family: 'poppins';
+  font-family: 'Source Sans Pro';
 }
 
-@media(max-width:600px){
-  *{
-
-      font-size: 0.879rem;
-  }
-
-}
