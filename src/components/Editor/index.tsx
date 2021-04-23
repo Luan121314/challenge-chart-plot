@@ -10,7 +10,7 @@ const Editor:React.FC<EditorComponentProps> = ({...rest}) => {
         <MonacoEditor
             className="editor-container"
             language="json"
-            height={400}
+            height="100%"
             options={{  minimap: { enabled: false } }}
             theme="vs-dark"
             {...rest}
