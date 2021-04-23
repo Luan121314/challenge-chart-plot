@@ -1,9 +1,15 @@
 import React, { MouseEvent, useState } from 'react';
 import Button from '../../components/Button';
 import Editor from '../../components/Editor';
+import Chart from "../../components/Chart";
 import "./styles.css";
 
 const Home = () => {
+
+
+
+
+
 	const [height, setHeight] = useState(0)
 	const [isClicked, setIsClicked] = useState(false)
 	const [data, setData] = useState("")
@@ -11,6 +17,7 @@ const Home = () => {
 
 	function handleMouseMove(e: MouseEvent) {
 		if (!isClicked) return;
+		if(e.pageY < 200)return
 		setHeight(e.pageY)
 
 	}
@@ -46,13 +53,13 @@ const Home = () => {
 
 				</div>
 				<div className="graph">
-
+					<Chart/>
 				</div>
 			</main>
 			<footer>
-				<Button label="GENERATE CHAT" name="generateChart" />
+				<Button label="GENERATE CHART" name="generateChart" />
 			</footer>
-		</div>
+		</div >
 	)
 }
 
