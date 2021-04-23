@@ -28,9 +28,8 @@
 
 #home-container main .graph{
     padding: 20px 10px;
-    display: grid;
+    margin-bottom: 80px;
     width: 100%;
-    grid-template-columns: 4fr 1fr;
 }
 
 

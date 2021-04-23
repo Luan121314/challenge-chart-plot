@@ -1,11 +1,18 @@
 .editor-container{
     background-color: var(--trinary-color);
     padding: 10px;
+    
 }
 
 .editor-container .monaco-editor, .lines-content.monaco-editor-background {
     background-color: var(--trinary-color);
 }
+
+.editor-container .monaco-editor span{
+    font-family: 'Source Sans Pro' !important;
+    
+}
+
 
 .editor-container .monaco-editor .margin{
     background-color: #61656e;

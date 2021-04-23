@@ -1,14 +1,11 @@
-import React, { MouseEvent, useState } from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
 import Button from '../../components/Button';
 import Editor from '../../components/Editor';
 import Chart from "../../components/Chart";
 import "./styles.css";
+import dataDefault from './dataDefault';
 
 const Home = () => {
-
-
-
-
 
 	const [height, setHeight] = useState(0)
 	const [isClicked, setIsClicked] = useState(false)
@@ -28,6 +25,12 @@ const Home = () => {
 	function handleClickUp() {
 		setIsClicked(false)
 	}
+
+	function loadDataDefault() {
+		setData(JSON.stringify(dataDefault))
+	}
+
+	useEffect(loadDataDefault, [])
 
 	return (
 		<div id="home-container">
