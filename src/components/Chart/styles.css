@@ -1,0 +1,7 @@
+.chart{
+    width: 90% !important;
+    height: 80% !important;
+    display: flex  !important;
+    justify-content: center;
+    padding: 10px;
+}
