@@ -1,31 +1,21 @@
-import { ChartData } from 'chart.js';
 import React from 'react';
+import { ChartData } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { generateColor, randomNumber } from '../../services/utils';
+import { generateColor } from '../../services/utils';
 import options from './options';
 import "./styles.css";
 
-const Chart = () => {
+interface DatasetProps{
+    data:Array<number>,
+    label: string
+}
 
-    const labels = ['Red', 'Blue',]
+interface ChartProps{
+    labels:Array<string>,
+    datasets:Array<DatasetProps>
+}
 
-    const datasets = [
-        {
-            label: '# of Votes 1',
-            data: [
-                randomNumber(),
-                randomNumber(),
-            ],
-
-        },
-        {
-            label: '# of Votes 2',
-            data: [
-                randomNumber(),
-                randomNumber(),
-            ],
-        }
-    ]
+const Chart = ({datasets, labels}:ChartProps) => {
 
     const datasetsSerialized = datasets.map(dataset => {
         const color = generateColor();
