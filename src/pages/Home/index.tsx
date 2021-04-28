@@ -3,7 +3,7 @@ import { format as formatDate } from 'date-fns';
 import Button from '../../components/Button';
 import Chart from "../../components/Chart";
 import Editor from '../../components/Editor';
-import { EventDataProps, EventProps, EventsDataProps, EventSpanProps, EventStartProps } from '../../interfaces';
+import { EventDataProps, EventsDataProps, EventSpanProps, EventStartProps } from '../../interfaces';
 import { serializeDataForGraph } from '../../services/utils';
 import dataDefault from './dataDefault';
 import "./styles.css";
@@ -57,7 +57,7 @@ const Home = () => {
 			const dataEvents = allEventsData.filter(event => event.type === "data") as EventDataProps[];
 			const spanEvent = allEventsData.filter(event => event.type === "span")[indexArray] as EventSpanProps;
 			const startEvent = allEventsData.filter(event => event.type === "start")[indexArray] as EventStartProps;
-			const stopEvent = allEventsData.filter(event => event.type === "stop")[indexArray] as EventProps;
+			// const stopEvent = allEventsData.filter(event => event.type === "stop")[indexArray] as EventProps;
 			const datesValid = dataEvents.filter(event => event.timestamp >= spanEvent.begin && event.timestamp <= spanEvent.end);
 			const { group, select } = startEvent;
 			const { begin, end } = spanEvent
