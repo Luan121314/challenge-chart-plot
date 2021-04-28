@@ -1,3 +1,5 @@
+import { EventDataProps } from "../interfaces";
+
 export function randomNumber(min = 0, max = 255) {
     return Math.floor(Math.random() * max) + min
 }
@@ -20,15 +22,6 @@ export function toUpperCaseFistLetter(str:string){
   export function FormatterKey(str: string){
       const syllables = str.split("_");
       return syllables.map(syllable => toUpperCaseFistLetter(syllable)).join(" ") ;
-  }
-  
-  export interface EventDataProps {
-      type: string;
-      timestamp: number;
-      os: string;
-      browser: string;
-      min_response_time: number;
-      max_response_time: number;
   }
   
   function getEventsInGroup(array: Array<EventDataProps>, keys: Array<string>, value: any, selects: Array<string>) {
@@ -78,7 +71,8 @@ export function toUpperCaseFistLetter(str:string){
   
   export function serializeDataForGraph(collectionEvents:Array<EventDataProps>, groups: Array<string>, select:Array<string>) {
   
-      const events = collectionEvents.sort((eventCurrent, eventNext) => eventCurrent.timestamp - eventNext.timestamp)
+      const events = collectionEvents.sort((eventCurrent, eventNext) => 
+      new Date(eventCurrent.timestamp).getTime() - new Date(eventNext.timestamp).getTime() )
       const possiblesGroups = getPossibleGroups(events, groups);
       let eventsSerialize: Array<any> = [];
       possiblesGroups.forEach(group => {

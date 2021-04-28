@@ -40,6 +40,8 @@ const Chart = ({datasets, labels}:ChartProps) => {
             type="line"
             className="chart"
             options={options}
+            height={900}
+            
         />
     )
 }

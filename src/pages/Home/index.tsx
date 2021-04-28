@@ -1,18 +1,18 @@
 import React, { MouseEvent, useEffect, useState } from 'react';
-import { format as formatDate } from 'date-fns'
+import { format as formatDate } from 'date-fns';
 import Button from '../../components/Button';
-import Editor from '../../components/Editor';
 import Chart from "../../components/Chart";
+import Editor from '../../components/Editor';
+import { EventDataProps, EventProps, EventsDataProps, EventSpanProps, EventStartProps } from '../../interfaces';
+import { serializeDataForGraph } from '../../services/utils';
 import dataDefault from './dataDefault';
-import { randomNumber } from '../../services/utils';
-import { EventsDataProps, EventDataProps, EventSpanProps, EventStartProps, EventProps } from '../../interfaces';
 import "./styles.css";
 
 
 
-interface DatasetsProps{
-	label:string,
-	data:Array<number>
+interface DatasetsProps {
+	label: string,
+	data: Array<number>
 }
 
 
@@ -43,44 +43,42 @@ const Home = () => {
 		setCodeDataEditor(JSON.stringify(dataDefault))
 	}
 
+	function handleGenerateDate() {
+		handlePrepareData(dataCodeEditor)
+	}
 
-	function handlePrepareData() {
-		const allEventsData: EventsDataProps[] = JSON.parse(dataCodeEditor);
-		if (allEventsData.length === 0) return;
-		const indexArray = 0
-		const dataEvents = allEventsData.filter(event => event.type === "data")
-			.sort((a, b) => new Date(a.timestamp).getTime() - new Date(a.timestamp).getTime()) as EventDataProps[];
-		const spanEvent = allEventsData.filter(event => event.type === "span")[indexArray] as EventSpanProps;
-		const startEvent = allEventsData.filter(event => event.type === "start")[indexArray] as EventStartProps;
-		const stopEvent = allEventsData.filter(event => event.type === "stop")[indexArray] as EventProps;
-		const datesValid = dataEvents.filter(event => event.timestamp >= spanEvent.begin && event.timestamp <= spanEvent.end);
-		const { group, select } = startEvent;
-		const { begin, end } = spanEvent
+	function handlePrepareData(data = JSON.stringify(dataDefault)) {
+		try {
 
-		const labels = [
-			formatDate(begin, "HH:mm"),
-			formatDate(end, "HH:mm")
-		]
 
-		let datasets = []
+			const allEventsData: EventsDataProps[] = JSON.parse(data);
+			if (allEventsData.length === 0) return;
+			const indexArray = 0
+			const dataEvents = allEventsData.filter(event => event.type === "data") as EventDataProps[];
+			const spanEvent = allEventsData.filter(event => event.type === "span")[indexArray] as EventSpanProps;
+			const startEvent = allEventsData.filter(event => event.type === "start")[indexArray] as EventStartProps;
+			const stopEvent = allEventsData.filter(event => event.type === "stop")[indexArray] as EventProps;
+			const datesValid = dataEvents.filter(event => event.timestamp >= spanEvent.begin && event.timestamp <= spanEvent.end);
+			const { group, select } = startEvent;
+			const { begin, end } = spanEvent
 
-			for (let e = 0; e < datesValid.length; e++) {
-				datasets.push({
-					//@ts-ignore
-					label: `${datesValid[e].os} ${datesValid[e].browser} ${datesValid[e].max_response_time} `,
-					data:[datesValid[e].max_response_time, datesValid[e].min_response_time]
-				})
-			}
+			const labels = [
+				formatDate(begin, "HH:mm"),
+				formatDate(end, "HH:mm")
+			]
 
-		console.log(datasets);
-		setSetLabels(labels)
-		setSetDatasets(datasets)
+			const datasets = serializeDataForGraph(datesValid, group, select);
 
+			setSetLabels(labels)
+			setSetDatasets(datasets)
+
+		} catch (error) {
+			alert("Formato não suportado")
+		}
 	}
 
 	useEffect(loadDataDefault, [])
-	useEffect(handlePrepareData, [dataCodeEditor])
-
+	useEffect(handlePrepareData, [])
 
 	return (
 		<div id="home-container">
@@ -110,7 +108,7 @@ const Home = () => {
 				</div>
 			</main>
 			<footer>
-				<Button label="GENERATE CHART" name="generateChart" onClick={handlePrepareData} />
+				<Button label="GENERATE CHART" name="generateChart" onClick={handleGenerateDate} />
 			</footer>
 		</div >
 	)

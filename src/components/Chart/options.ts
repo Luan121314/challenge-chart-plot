@@ -10,7 +10,7 @@ const options: ChartOptions = {
             align: 'start',
             labels: {
                 font: {
-                    size: 13,
+                    size: 12,
                     family: "Source Sans Pro",
                     lineHeight: 1.2,
                     style: "normal",
@@ -18,7 +18,7 @@ const options: ChartOptions = {
                 },
                 color:{},
                 usePointStyle: true,
-                padding: 20
+                padding: 15
             }
         },
 

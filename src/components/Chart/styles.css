@@ -1,6 +1,6 @@
 .chart{
     width: 90% !important;
-    height: 80% !important;
+    height: 250px !important;
     display: flex  !important;
     justify-content: center;
     padding: 10px;
