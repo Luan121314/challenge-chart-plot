@@ -13,8 +13,6 @@
 
 ## App development
 
- - During on development was identified features
-
  - Rezize div *ok*
  - Implementation code editor *ok*
  - implementation graph *ok*
@@ -22,4 +20,14 @@
  - Error handling  *ok*
  - Styling according to model *ok*
  - Tests *pending* 
+ - Deploy *ok*
+ 
 
+ ## Main Technologies and packages used
+ 
+ - Typescript
+ - ReactJS
+ - monaco-editor
+ - chart.js
+ - date-fns
+ 
