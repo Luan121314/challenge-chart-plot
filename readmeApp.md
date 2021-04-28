@@ -19,6 +19,7 @@
  - Implementation code editor *ok*
  - implementation graph *ok*
  - Logic implementation in the graph datas gruping; *ok*
+ - Error handling  *ok*
  - Styling according to model *ok*
  - Tests *pending* 
 
