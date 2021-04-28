@@ -15,7 +15,6 @@ const options: ChartOptions = {
                     lineHeight: 1.2,
                     style: "normal",
                     weight: "700",
-
                 },
                 color:{},
                 usePointStyle: true,
@@ -23,7 +22,9 @@ const options: ChartOptions = {
             }
         },
 
+
     }
+
 }
 
 
