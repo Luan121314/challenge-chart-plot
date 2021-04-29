@@ -10,6 +10,7 @@
 ## Deployed app
 
 - The app is hosted at netlify in the adress  [app hosted](https://chartplotchallenge.netlify.app/)
+- [![Netlify Status](https://api.netlify.com/api/v1/badges/fde38d93-731f-45ba-878f-82a61c1502f3/deploy-status)](https://app.netlify.com/sites/chartplotchallenge/deploys)
 
 ## App development
 
